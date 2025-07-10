@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.json())
 
 //Routes
-app.use('/api/clinician',Clinician)
+app.use('/clinician',Clinician)
 app.use('/api/cro', CRO )
 app.use('/api/patient', Patient)
 app.use('/api/waitinglist', Waiting)
