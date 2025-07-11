@@ -15,10 +15,10 @@ app.use(cors())
 app.use(express.json())
 
 //Routes
-app.use('/api/clinician',Clinician)
-app.use('/api/cro', CRO )
-app.use('/api/patient', Patient)
-app.use('/api/waitinglist', Waiting)
+app.use('/clinician',Clinician)
+app.use('/cro', CRO )
+app.use('/patient', Patient)
+app.use('/waitinglist', Waiting)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
