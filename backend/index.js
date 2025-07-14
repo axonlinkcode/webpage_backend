@@ -10,13 +10,14 @@ import Waiting from './routes/Waiting.js'
 dotenv.config()
 
 const app = express()
+app.use(express.json());
 connectDB()
-// app.use(cors({
-//   origin: 'https://www.axonlink.ai',
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   credentials: true
-// }))
-app.use(cors())
+app.use(cors({
+  origin: 'https://www.axonlink.ai',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}))
+// app.use(cors())
 
 
 //Routes
