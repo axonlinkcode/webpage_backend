@@ -11,11 +11,12 @@ dotenv.config()
 
 const app = express()
 connectDB()
-app.use(cors({
-  origin: 'https://www.axonlink.ai',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}))
+// app.use(cors({
+//   origin: 'https://www.axonlink.ai',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   credentials: true
+// }))
+app.use(cors())
 
 
 //Routes
