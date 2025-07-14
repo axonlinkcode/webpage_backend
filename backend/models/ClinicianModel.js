@@ -18,7 +18,20 @@ const ClinicianSchema = new mongoose.Schema({
   trainingReceived: String,
   toolImprovementSuggestions: String,
   smsWillingness: String,
-  desiredFeatures: [String]
+  desiredFeatures: [String],
+
+   email: {
+    type: String,
+    required: false, // You can set true if it's required
+    trim: true,
+    lowercase: true,
+    validate: {
+      validator: function (v) {
+        return /^\S+@\S+\.\S+$/.test(v);
+      },
+      message: props => `${props.value} is not a valid email address!`
+    }
+  }
 }, { timestamps: true });
 
 const Clinician = mongoose.model('ClinicianResponse', ClinicianSchema);

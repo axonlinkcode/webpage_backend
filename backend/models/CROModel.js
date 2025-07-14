@@ -29,6 +29,19 @@ const CROMemberSchema = new mongoose.Schema({
   aiToolConcerns: String,
   investmentOpenness: String,
   improvementPriorities: [String],
+
+   email: {
+    type: String,
+    required: false, // You can set true if it's required
+    trim: true,
+    lowercase: true,
+    validate: {
+      validator: function (v) {
+        return /^\S+@\S+\.\S+$/.test(v);
+      },
+      message: props => `${props.value} is not a valid email address!`
+    }
+  }
 }, { timestamps: true });
 
 const CRO = mongoose.model('CROResponse', CROMemberSchema);
