@@ -12,11 +12,28 @@ dotenv.config()
 const app = express()
 app.use(express.json());
 connectDB()
+// app.use(cors({
+//   origin: ['https://www.axonlink.ai','http://localhost:5173'],
+//   methods: ['GET', 'POST', 'PUT', 'DELETE']
+// }))
 app.use(cors({
-  origin: ['https://www.axonlink.ai','http://localhost:5173'],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'https://www.axonlink.ai',
+      'http://localhost:5173'
+    ];
+
+    // Allow if no origin (e.g., Postman) OR in the whitelist
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      // Allow all other origins universally
+      callback(null, true); // 👈 This line allows everything else
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE']
-}))
-// app.use(cors())
+}));
+
 
 
 //Routes
