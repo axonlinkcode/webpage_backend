@@ -6,6 +6,7 @@ export const createPatient = async (req, res) => {
         const savedPatient = await newPatient.save();
         res.status(201).json(savedPatient);
     } catch (error) {
+            console.error("❌ Error creating patient:", error);
         res.status(500).json({ message: error.message });
     }
 };
