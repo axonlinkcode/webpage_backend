@@ -14,8 +14,7 @@ app.use(express.json());
 connectDB()
 app.use(cors({
   origin: ['https://www.axonlink.ai','http://localhost:5173'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
 }))
 // app.use(cors())
 
