@@ -7,20 +7,23 @@ const PatientSchema = new mongoose.Schema({
   trialParticipation: String,
   accessDifficulty: Number,
   biggestChallenge: String,
-
+  knowClinicalTrial: String,
   usesInternetHealth: String,
+
   onlineActivities: [String],
   noInternetReasons: [String],
   comfortLevel: Number,
   internetReliability: Number,
   communicationPreferences: [String],
-
+  enrollDifficulty: Number,
+  trialChallenge:String,
+  consultantChallenge:String,
   desiredFeatures: [String],
   privacyConcerns: String,
   smsWillingness: String,
-  
+
   systemPriorities: [String],
-   email: {
+  email: {
     type: String,
     required: false, // You can set true if it's required
     trim: true,

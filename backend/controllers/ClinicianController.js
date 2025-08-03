@@ -12,9 +12,9 @@ export const createClinician = async (req, res) => {
 
 export const getClinician = async (req, res) => {
     try {
-        const clinician = await Clinician.find();
-        res.status(200).json(clinician);
+        const getClinician = await Clinician.find();
+        res.status(200).json(getClinician);
     } catch (error) {
-
+        res.status(500).json({ message: error.message });
     }
 }
