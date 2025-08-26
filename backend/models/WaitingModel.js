@@ -4,7 +4,7 @@ const WaitingSchema = new mongoose.Schema({
     name:String,
     email:String,
     phone:String,
-    State:String,
+    country:String,
 })
 
 const Waiting = mongoose.model('WaitingResponse', WaitingSchema);

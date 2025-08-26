@@ -1,13 +1,20 @@
 import Patient from "../models/PatientModel.js";
 
 export const createPatient = async (req, res) => {
+    console.time("form submission");
+
     try {
+        console.time('db write');
         const newPatient = new Patient(req.body);
         const savedPatient = await newPatient.save();
+        console.timeEnd('db write');
+
         res.status(201).json(savedPatient);
+
     } catch (error) {
-            console.error("❌ Error creating patient:", error);
         res.status(500).json({ message: error.message });
+    } finally {
+        console.timeEnd('form submission');
     }
 };
 
