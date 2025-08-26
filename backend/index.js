@@ -22,17 +22,22 @@ const allowedOrigins = [
 // ✅ CORS middleware
 app.use(cors({
   origin: function (origin, callback) {
+    const allowedOrigins = [
+      'https://www.axonlink.ai',
+      'https://axonlink-webpage-prod.vercel.app'
+    ];
+
     if (!origin || allowedOrigins.includes(origin)) {
-      // echo the origin back in the response
-      callback(null, true);
+      callback(null, origin);  // ✅ echo the actual origin
     } else {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allow preflight
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
 
 // Routes
 app.use('/clinician', Clinician);
